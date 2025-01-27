@@ -46,7 +46,11 @@ class SentryFormatter implements HttpFormatter
         $settings = resolve(SettingsRepositoryInterface::class);
         $sentry = resolve('sentry');
 
-        if (!$error->shouldBeReported() || $sentry == null || $sentry->getLastEventId() == null || !((bool) (int) $settings->get('fof-sentry.user_feedback'))) {
+        if (!$error->shouldBeReported()
+            || $sentry == null
+            || $sentry->getLastEventId() == null
+            || ! boolval($settings->get('fof-sentry.user_feedback'))
+        ) {
             return $response;
         }
 

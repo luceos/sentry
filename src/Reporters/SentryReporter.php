@@ -25,7 +25,7 @@ class SentryReporter implements Reporter
     {
     }
 
-    public function report(Throwable $error)
+    public function report(Throwable $error): void
     {
         /** @var HubInterface $hub */
         $hub = $this->container->make('sentry');

@@ -106,12 +106,12 @@ class SentryServiceProvider extends AbstractServiceProvider
             return $hub;
         });
 
-        $this->container->extend(
-            ViewFormatter::class,
-            function (ViewFormatter $formatter) {
-                return new SentryFormatter($formatter);
-            }
-        );
+//        $this->container->extend(
+//            ViewFormatter::class,
+//            function (ViewFormatter $formatter) {
+//                return new SentryFormatter($formatter);
+//            }
+//        );
 
         $this->container->tag(SentryReporter::class, Reporter::class);
 
